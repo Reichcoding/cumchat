@@ -1,9 +1,4 @@
-# 
-#                    отправка сообщения
-# last = 0
-# print(req.post("http://127.0.0.1:1488/send",json={'from':"gondon228","msg":"penis"}).json())
-
-#                   получение сообщений с последнего по айди
+                 получение сообщений с последнего по айди
 
 import requests as req
 import time
@@ -17,7 +12,7 @@ nickname = ""
 
 
 def sendMsg(msg):
-	req.post("http://127.0.0.1:1488/send",json={'pass':password,'from':nickname,"msg":msg})
+	req.post("http://WebJCou.pythonanywhere.com/send",json={'pass':password,'from':nickname,"msg":msg})
 
 def printMsg(msg):
 	print(Fore.CYAN + f"\r\r{msg['from']}:"+ Fore.RESET +f" {msg['msg']}"+'\n'+Fore.GREEN + f"@Вы: "+Fore.RESET,end='')
@@ -27,7 +22,7 @@ def listen():
 	while True:
 		end = 0
 		while end != 1:
-			msg = req.post(f"http://127.0.0.1:1488/get/{password}/{last}").json()
+			msg = req.post(f"http://WebJCou.pythonanywhere.com/get/{password}/{last}").json()
 			if 'state' in msg:
 				end = 1
 				break
