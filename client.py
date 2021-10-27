@@ -1,4 +1,3 @@
-                 получение сообщений с последнего по айди
 
 import requests as req
 import time
